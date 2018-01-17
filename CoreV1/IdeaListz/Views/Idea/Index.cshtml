@@ -1,0 +1,31 @@
+@model IdeaViewModel
+
+@{
+  ViewData["Title"] = "Manage Your Ideas";
+}
+
+<div class="panel panel-default idea-panel">
+  <div class="panel-heading">@ViewData["Title"]</div>
+
+  @foreach (var idea in Model.Ideas)
+  {
+    <div>
+      <h3>@idea.Title</h3>
+      <p>@idea.Description</p>
+    </div>
+  }
+
+  <div class="panel-footer add-item-form">
+    <form>
+      <div id="add-item-error" class="text-danger"></div>
+      <label for="add-item-title">Add an Idea:</label>
+      <input id="add-item-title">
+      <div>
+        <label for="description"></label>
+        <textarea id="description"></textarea>
+      </div>
+      <button type="button" id="add-item-button">Add</button>
+    </form>
+  </div>
+
+</div>
