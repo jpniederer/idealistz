@@ -15,6 +15,8 @@ namespace IdeaListz.Data
         {
         }
 
+        public DbSet<Idea> Ideas { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

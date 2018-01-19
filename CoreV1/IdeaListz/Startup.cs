@@ -37,7 +37,7 @@ namespace IdeaListz
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
-            services.AddSingleton<IIdeaItemService, FakeIdeaItemService>();
+            services.AddScoped<IIdeaItemService, IdeaItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
