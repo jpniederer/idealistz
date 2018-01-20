@@ -28,5 +28,22 @@ namespace IdeaListz.Controllers
 
       return View(model);
     }
+
+    public async Task<IActionResult> AddIdea(NewIdea newIdea)
+    {
+      if (!ModelState.IsValid)
+      {
+        return BadRequest(ModelState);
+      }
+
+      var successful = await _ideaItemService.AddIdeaAsync(newIdea);
+
+      if (!successful)
+      {
+        return BadRequest(new { error = "Unable to add idea." });
+      }
+
+      return Ok();
+    }
   }
 }
