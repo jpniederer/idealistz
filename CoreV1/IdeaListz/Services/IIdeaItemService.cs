@@ -9,6 +9,6 @@ namespace IdeaListz.Services
   {
     Task<IEnumerable<Idea>> GetIdeasAsync();
 
-    Task<bool> AddIdeaAsync(NewIdea newIdea);
+    Task<bool> AddIdeaAsync(NewIdea newIdea, ApplicationUser user);
   }
 }

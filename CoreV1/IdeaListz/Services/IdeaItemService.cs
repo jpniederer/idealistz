@@ -22,13 +22,14 @@ namespace IdeaListz.Services
       return await _context.Ideas.ToArrayAsync();
     }
 
-    public async Task<bool> AddIdeaAsync(NewIdea newIdea)
+    public async Task<bool> AddIdeaAsync(NewIdea newIdea, ApplicationUser user)
     {
       var idea = new Idea
       {
         Id = Guid.NewGuid(),
         AuthorId = Guid.NewGuid(),
         IdeaListId = Guid.NewGuid(),
+        CreatorId = user.Id,
         IsPublic = true,
         Title = newIdea.Title,
         Description = newIdea.Description,
